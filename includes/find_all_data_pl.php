@@ -1,0 +1,54 @@
+<?php
+                                               
+                                               
+                                                    $doba_obratu=array();
+                                                    $doba_obratu_p=array();
+                                                    $straty_nvn=array();
+                                                    $straty_nvn_p=array();
+                                                    $oproti_trzbam=array();
+                                                    $oproti_trzbam_p=array();
+                                                    $efektivnost=array();
+                                                    $efektivnost_p=array();
+                                                    $vyrobny_pracovnici=array();
+                                                    $vyrobny_pracovnici_p=array();
+                                                    $pracovnici_posl_den=array();
+                                                    $pracovnici_posl_den_p=array();
+                                                    $efektivnost_trzby=array();
+                                                    $efektivnost_trzby_p=array();
+                                                    $prietok_ks=array();
+                                                    $prietok_ks_p=array();
+                                                    $prietok_eur=array();
+                                                    $prietok_eur_p=array();
+                                                    $plnenie_noriem=array();
+                                                    $plnenie_noriem_p=array();
+                                                    $id=array();
+                                                    $num_of_actual_period=0;
+                                                    while($num_of_actual_period<$count_of_periods){
+                                                        $query_BU="SELECT * FROM pl WHERE YEAR(obdobie)=".$years[$num_of_actual_period]." AND MONTH(obdobie)=".$months[$num_of_actual_period]." ";
+                                                        $apply_BU=mysqli_query($connect,$query_BU);
+                                                        $result_BU=mysqli_fetch_array($apply_BU);
+                                                        array_push($doba_obratu,$result_BU['priemerna_doba_obratu_zasob_voci_trzbam']);
+                                                        array_push($doba_obratu_p,$result_BU['priemerna_doba_obratu_zasob_voci_trzbam_poznamka']);
+                                                        array_push($straty_nvn,$result_BU['straty_z_nvn_z_odvedenej_vyroby_oproti_trzbam_1']);
+                                                        array_push($straty_nvn_p,$result_BU['straty_z_nvn_z_odvedenej_vyroby_oproti_trzbam_1_poznamka']);
+                                                        array_push($oproti_trzbam,$result_BU['straty_z_nvn_z_odvedenej_vyroby_oproti_trzbam_2']);
+                                                        array_push($oproti_trzbam_p,$result_BU['straty_z_nvn_z_odvedenej_vyroby_oproti_trzbam_2_poznamka']);
+                                                        array_push($efektivnost,$result_BU['efektivnost_vyroby']);
+                                                        array_push($efektivnost_p,$result_BU['efektivnost_vyroby_poznamka']);
+                                                        array_push($vyrobny_pracovnici,$result_BU['priemerny_pocet_vyrobnych_pracovnikov_za_obd']);
+                                                        array_push($vyrobny_pracovnici_p,$result_BU['priemerny_pocet_vyrobnych_pracovnikov_za_obd_poznamka']);
+                                                        array_push($pracovnici_posl_den,$result_BU['pocet_vyrobnych_pracovnikov_k_poslednemu_dnu_v_mesiaci']);
+                                                        array_push($pracovnici_posl_den_p,$result_BU['pocet_vyrobnych_pracovnikov_k_poslednemu_dnu_v_mesiaci_poznamka']);
+                                                        array_push($efektivnost_trzby,$result_BU['efektivnost_vyroby_trzby_vyrob_pracovnik_den']);
+                                                        array_push($efektivnost_trzby_p,$result_BU['efektivnost_vyroby_trzby/vyrob_pracovnik/den_poznamka']);
+                                                        array_push($prietok_ks,$result_BU['denny_prietok_vyroby_esady_ks']);
+                                                        array_push($prietok_ks_p,$result_BU['denny_prietok_vyroby_esady_ks_poznamka']);
+                                                        array_push($prietok_eur,$result_BU['denny_prietok_vyroby_vyr_pracovnika_den']);
+                                                        array_push($prietok_eur_p,$result_BU['denny_prietok_vyroby/vyr_pracovnika/den_poznamka']);
+                                                        array_push($plnenie_noriem,$result_BU['plnenie_vykonovych_noriem']);
+                                                        array_push($plnenie_noriem_p,$result_BU['plnenie_vykonovych_noriem_poznamka']);
+                                                        array_push($id,$result_BU['id']);
+                                                        $num_of_actual_period++;
+                                                    }
+                                               
+                                                ?>

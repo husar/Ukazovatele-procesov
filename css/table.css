@@ -1,0 +1,17 @@
+
+table { border-collapse: collapse; width: 100%; }
+th { background: #ffff4f; padding: 8px 16px; }
+td { padding: 0px 0px; }
+
+
+.tableFixHead {
+  overflow: auto;
+  height: 700px;
+}
+
+.tableFixHead thead th {
+  position: sticky;
+  top: 0;
+    background: #ffff4f;
+}
+
